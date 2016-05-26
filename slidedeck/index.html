@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Electron 101</title>
+
+		<meta name="description" content="Electron 101">
+		<meta name="author" content="Bhargav Nookala">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/pikestreet.css" id="theme">
+
+		<!-- Code syntax highlighting - also available: visualstudio.css & zenburn.css -->
+		<link rel="stylesheet" href="lib/css/github.css">
+
+		<!-- Icons -->
+		<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal pikestreet">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown>
+					<script type="text/template">
+						# Electron 101
+						#### Bhargav Nookala, Open Source Engineer
+						#### @bhargav
+
+						Note:
+						Hi! I'm an open source engineer at Microsoft.
+
+					</script>
+				</section>
+
+				<section class="inverse">
+					<p><b>Electron</b> allows you to create cross platform desktop applications using plain ol' Javascript!</p>
+
+					<br/>
+					<span class="fragment fade-in">
+						<i class="fa fa-windows"></i>
+						<i class="fa fa-apple"></i>
+						<i class="fa fa-linux"></i>
+					</span>
+				</section>
+
+				<section>
+					<h2>It's (probably) in your life already</h2>
+					<img src="assets/slack_icon.png" width="200" height="200"></img>
+					<img src="assets/vscode_icon.png" width="200" height="200"></img>
+					<img src="assets/ghost_icon.png" width="200" height="200"></img>
+					<br/>
+					Atom, Nylas, Wordpress, and <a href="http://electron.atom.io/apps/">many more…</a>
+				</section>
+
+				<section>
+					<h2>Getting started</h2>
+					<code data-trim>npm install -g electron-prebuilt</code>
+					<br/>
+					<span class="fragment fade-in">
+						or…
+					</span>
+					<br/>
+					<code class="fragment fade-in">npm install --save electron-prebuilt</code>
+
+					<aside class="notes">
+						If you've got an existing node package, you can use --save
+					</aside>
+				</section>
+
+
+				<section>
+					<h2>Hello Electron</h2>
+					<a href="atm://open?url=file://Users/bhargav/code/electron-101/hello-electron.js">hello-electron.js</a>
+
+					<aside class="notes">
+						So we've created a super simple electron app. It does literally nothing, except print to a terminal.
+						But the electron main process itself stays active, waiting for events from a different process.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Two different processes</h2>
+
+					<img src="./assets/ipc.png"></img>
+					<a href="https://speakerdeck.com/jllord/electron-1-dot-0-at-github-satellite-amsterdam-2016">Source</a>
+
+					<aside class="notes">
+						Electron wraps two processes, a 'main' process, and a 'renderer' process. They both communicate to each other
+						via IPC, and both have full access to the Node.js and Electron APIs.
+					</aside>
+				</section>
+
+				<section>
+					<h2>A really dumb (browser) window</h2>
+					<a href="atm://open?url=file://Users/bhargav/code/electron-101/hello-window.js">hello-window.js</a>
+
+					<aside class="notes">
+						Well this doesn't really do much, does it? Seems like we can only make it load a page from a URL. Let's change that a lil'.
+					</aside>
+			  </section>
+
+				<section>
+					<h2>A slightly less dumb window</h2>
+					<a href="atm://open?url=file://Users/bhargav/code/electron-101/hello-apps.js">hello-apps.js</a>
+
+					<aside class="notes">
+						So, here we've been able to open a HTML file from the local filesystem. Let's play around with it a little.
+					</aside>
+				</section>
+
+				<section>
+					<h2>So many more possibilities</h2>
+					auto updating, clipboards, global shortcuts, native menu items, basically node module you can think of.
+
+					<aside class="notes">
+					Possibly show how we use auto updating in ghost-desktop?
+					</aside>
+				</section>
+
+				<section>
+					<h1>¡Atención!</h1>
+
+					<aside class="notes">
+						Electron is not meant to be a do-all wrapper for turning websites into desktop apps. Please be careful about this,
+						as it is *very* easy to accidentally include malicious resources from the internet.
+					</aside>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Thank you!</h2>
+					<span><i class="fa fa-envelope-o"></i> bhnook@microsoft.com</span>
+					<br/>
+					<span><i class="fa fa-twitter"></i> @bhargav</span>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+		<script src="js/pikestreet.js"></script>
+	</body>
+</html>
